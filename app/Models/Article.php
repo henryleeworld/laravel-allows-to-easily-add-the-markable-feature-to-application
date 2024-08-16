@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Maize\Markable\Markable;
 use Maize\Markable\Models\Like;
 
@@ -11,6 +12,11 @@ class Article extends Model
 {
     use HasFactory, Markable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'title',
         'description'
@@ -23,7 +29,7 @@ class Article extends Model
     /**
      * Get the user that owns the article.
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

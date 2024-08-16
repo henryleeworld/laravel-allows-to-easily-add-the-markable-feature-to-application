@@ -12,21 +12,21 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail(1);
         $user = User::findOrFail(1);
-        echo '使用者 1 對文章 1 按讚。' . PHP_EOL;
+        echo __('User :user_id liked article :article_id.', ['user_id' => $user->id, 'article_id' => $article->id]) . PHP_EOL;
         Like::add($article, $user);
         if (Like::has($article, $user)) {
-            echo '確認使用者 1 已對文章 1 按讚。' . PHP_EOL;
+            echo __('Confirm that user :user_id has liked article :article_id.', ['user_id' => $user->id, 'article_id' => $article->id]) . PHP_EOL;
         }
-        echo '使用者 1 對文章 1 取消按讚。' . PHP_EOL;
+        echo __('User :user_id unliked article :article_id.', ['user_id' => $user->id, 'article_id' => $article->id]) . PHP_EOL;
         Like::remove($article, $user);
         if (!Like::has($article, $user)) {
-            echo '確認使用者 1 未對文章 1 按讚。' . PHP_EOL;
+            echo __('Confirm that user :user_id has not liked article :article_id.', ['user_id' => $user->id, 'article_id' => $article->id]) . PHP_EOL;
         }
-        echo '使用者 2 和 3 對文章 1 按讚。' . PHP_EOL;
         $userSecond = User::findOrFail(2);
         $userThird  = User::findOrFail(3);
+        echo __('Users :user_id_1 and :user_id_2 liked article :article_id.', ['user_id_1' => $userSecond->id, 'user_id_2' => $userThird->id, 'article_id' => $article->id]) . PHP_EOL;
         Like::add($article, $userSecond);
         Like::add($article, $userThird);
-        echo '文章 1 共 ' . Like::count($article) . ' 位按讚。';
+        echo __('Article :article_id Liked by :total people.', ['article_id' => $article->id, 'total' => Like::count($article)]);
     }
 }

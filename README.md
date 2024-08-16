@@ -1,4 +1,4 @@
-# Laravel 10 應用程式允許輕鬆地加入可標記功能
+# Laravel 11 應用程式允許輕鬆地加入可標記功能
 
 引入 maize-tech 的 laravel-markable 套件來應用程式允許輕鬆地加入可標記功能，例如按讚、加入書籤、加入收藏等。
 
@@ -26,5 +26,5 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/qLudLsn.png)
+![](https://i.imgur.com/Pdhsyc1.png)
 > 查看使用者按過讚的文章

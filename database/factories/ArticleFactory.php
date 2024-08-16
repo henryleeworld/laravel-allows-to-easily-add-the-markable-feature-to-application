@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
 {
-    public function definition()
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
     {
         return [
-            'title' => $this->faker->realText(50),
-            'description' => $this->faker->realText(100),
+            'title' => fake()->realText(50),
+            'description' => fake()->realText(100),
         ];
     }
 }
